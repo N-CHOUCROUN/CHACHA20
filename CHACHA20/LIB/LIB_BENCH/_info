@@ -1,0 +1,46 @@
+m255
+K4
+z2
+!s11f vlog 2020.4 2020.10, Oct 13 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nathaniel.choucroun/CHACHA20
+T_opt
+!s110 1778686265
+VV3hk_=g?Wkj`QHFT5M[Ed2
+04 15 4 work chacha20_top_tb fast 0
+=1-000ae431a4f1-6a049939-a446a-2a19b8
+o-quiet -auto_acc_if_foreign -work LIB_BENCH -L LIB_RTL
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2020.4;71
+vchacha20_top_tb
+DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+DXx7 LIB_RTL 13 Package_Round 0 22 5U=jezzTkLedn:Mczi0SK3
+!s110 1778686263
+!i10b 1
+!s100 0I?[Qk793kf9Ghlz;z?ZJ3
+!s11b Dg1SIo80bB@j0V0VzS_@n1
+IiKaE^Q2?4d45^g4T5FbDn0
+S1
+R0
+w1777389019
+8./SRC/BENCH/chacha20_top_tb.sv
+F./SRC/BENCH/chacha20_top_tb.sv
+!i122 0
+L0 3 122
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2020.4;71
+r1
+!s85 0
+31
+!s108 1778686263.000000
+!s107 ./SRC/BENCH/chacha20_top_tb.sv|
+!s90 -sv|+acc|-svinputport=net|-L|LIB_RTL|-work|LIB_BENCH|./SRC/BENCH/chacha20_top_tb.sv|
+!i113 0
+o-sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1

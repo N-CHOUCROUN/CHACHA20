@@ -1,0 +1,91 @@
+#!/bin/bash
+
+export PROJECTNAME="."
+
+
+echo "the project location is : $PROJECTNAME"
+echo "removing libs"
+vdel -lib $PROJECTNAME/LIB/LIB_RTL -all
+vdel -lib $PROJECTNAME/LIB/LIB_BENCH -all
+
+echo "creating library "
+
+vlib $PROJECTNAME/LIB/LIB_RTL
+vmap LIB_RTL $PROJECTNAME/LIB/LIB_RTL
+vlib $PROJECTNAME/LIB/LIB_BENCH
+vmap LIB_BENCH $PROJECTNAME/LIB/LIB_BENCH
+
+
+# compilation des fichiers sources
+echo "compile systemverilog sources"
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/Package_Round.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/Package_Round.sv | grep Error
+ 
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/arx.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/arx.sv | grep Error
+
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/QuarterRound.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/QuarterRound.sv | grep Error
+
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/ColumnRound.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/ColumnRound.sv | grep Error
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/DiagonalRound.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/DiagonalRound.sv | grep Error
+
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/MuxState.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/MuxState.sv | grep Error
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/Round.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/Round.sv | grep Error
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/ToggleRound.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/ToggleRound.sv | grep Error
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/RegState.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/RegState.sv | grep Error
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/chacha_block.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/chacha_block.sv | grep Error
+
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/compteur_init.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/compteur_init.sv | grep Error
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/chacha_fsm.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/chacha_fsm.sv | grep Error
+
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/Reg_512.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/Reg_512.sv | grep Error
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/Splitter.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/Splitter.sv | grep Error
+echo "vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/chacha20_top.sv" 
+ vlog -sv +acc -svinputport=net -work LIB_RTL $PROJECTNAME/SRC/RTL/chacha20_top.sv | grep Error
+
+# Compilation des fichiers TB
+echo "compile systemverilog test bench"
+#echo "vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/arx_tb.sv"
+# vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/arx_tb.sv | grep Error
+
+#echo "vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/QuarterRound_tb.sv"
+# vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/QuarterRound_tb.sv | grep Error
+
+#echo "vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/ColumnRound_tb.sv"
+# vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/ColumnRound_tb.sv | grep Error
+#echo "vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/DiagonalRound_tb.sv"
+# vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/DiagonalRound_tb.sv | grep Error
+
+#echo "vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/chacha_block_tb.sv"
+# vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/chacha_block_tb.sv | grep Error
+ 
+ echo "vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/chacha20_top_tb.sv"
+ vlog -sv +acc -svinputport=net -L LIB_RTL -work LIB_BENCH $PROJECTNAME/SRC/BENCH/chacha20_top_tb.sv | grep Error
+
+
+
+# lancement du simulateur
+echo "compilation finished"
+echo "start simulation..."
+
+# ATTENTION un seul VSIM decommenté à la fois! (facultatif)
+#vsim -L LIB_RTL LIB_BENCH.arx_tb
+#vsim -L LIB_RTL LIB_BENCH.QuarterRound_tb
+#vsim -L LIB_RTL LIB_BENCH.ColumnRound_tb
+#vsim -L LIB_RTL LIB_BENCH.DiagonalRound_tb
+#vsim -L LIB_RTL LIB_BENCH.chacha_block_tb
+vsim -L LIB_RTL LIB_BENCH.chacha20_top_tb
+
+
